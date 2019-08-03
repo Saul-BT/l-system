@@ -1,0 +1,62 @@
+h1 {text-align: center}
+
+.customPattern {float: left}
+.customPattern > p{margin: 10px 0 0 8px}
+
+.glossary {
+    color: #555;
+    margin-left: 500px
+}
+
+.glossary .command {
+    color: tomato;
+    font-weight: bold
+}
+
+.customPattern input,
+.customPattern button {
+    color: black;
+    margin: 8px 5px;
+    padding: 3px 8px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 3px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15)
+}
+
+input#axiom {width: 70px}
+
+.customPattern > input:not(#axiom) {width: 35px}
+
+input.rule {width: 100px}
+
+canvas {
+    clear: both;
+    display: block;
+    margin: 50px auto;
+    background-color: #363636;
+    border-radius: 8px
+}
+
+
+#currentFractalInfo {
+    position: relative;
+    display: block;
+    color: #999;
+    /* background-color: rgba(255,255,255,0.3); */
+    min-height: 165px;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: -165px;
+    padding: 2px 13px;
+    transform: translateY(-125%);
+    box-sizing: border-box
+}
+
+@media screen and (max-width: 900px) {
+    .customPattern {float: none}
+    .glossary {margin-left: 10px}
+}
+
+@media screen and (max-width: 550px) {
+    canvas#fractal {width: 100%}
+}
