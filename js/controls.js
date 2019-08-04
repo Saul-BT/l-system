@@ -13,11 +13,20 @@ function createRuleControls() {
     let inputCtrl = document.createElement("input");
     let outputCtrl = document.createElement("input");
     let lineBreak = document.createElement('br');
+    let delRule = document.createElement("button");
+
+    delRule.innerText = "-";
+    delRule.addEventListener("click", function() {
+        rulesSection.removeChild(this.previousElementSibling);
+        rulesSection.removeChild(this.previousElementSibling);
+        rulesSection.removeChild(this.nextElementSibling);
+        rulesSection.removeChild(this);
+    });
 
     inputCtrl.setAttribute("class", "rule input");
     outputCtrl.setAttribute("class", "rule output");
 
-    return [inputCtrl, ' ', outputCtrl, lineBreak];
+    return [inputCtrl, ' ', outputCtrl, ' ', delRule, lineBreak];
 }
 
 addRulesButton.addEventListener("click", () => {
