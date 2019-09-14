@@ -58,5 +58,6 @@ canvas {
 }
 
 @media screen and (max-width: 550px) {
+    #currentFractalInfo,
     canvas#fractal {width: 100%}
 }
