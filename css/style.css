@@ -1,11 +1,12 @@
+html, body{
+    height: 100%;
+}
 h1 {text-align: center}
 
-.customPattern {float: left}
 .customPattern > p{margin: 10px 0 0 8px}
 
 .glossary {
     color: #555;
-    margin-left: 500px
 }
 
 .glossary .command {
@@ -23,16 +24,13 @@ h1 {text-align: center}
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15)
 }
 
-input#axiom {width: 70px}
-
-.customPattern > input:not(#axiom) {width: 35px}
+.customPattern > input {width: 75px}
 
 input.rule {width: 100px}
 
 canvas {
     clear: both;
     display: block;
-    margin: 50px auto;
     background-color: #363636;
     border-radius: 8px
 }
@@ -50,11 +48,6 @@ canvas {
     padding: 2px 13px;
     transform: translateY(-125%);
     box-sizing: border-box
-}
-
-@media screen and (max-width: 900px) {
-    .customPattern {float: none}
-    .glossary {margin-left: 10px}
 }
 
 @media screen and (max-width: 550px) {
