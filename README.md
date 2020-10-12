@@ -2,7 +2,7 @@
 
 A fractal generator which uses [L-System](https://en.wikipedia.org/wiki/L-system) and basic commands inpired by the [logo](https://en.wikipedia.org/wiki/Logo_(programming_language)) ones.
 
-## Getting Started
+## Getting Started :muscle:
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
@@ -10,18 +10,18 @@ These instructions will get you a copy of the project up and running on your loc
 
 L-System uses the ecmascript 6 modules so in order to run it on your local machine you will have to install a web server (like [Apache](https://httpd.apache.org/)).
 
-## Contributing
+## Contributing :construction_worker:
 - Check the actual known issues
 - You can improve the code (if needed), but not only add/remove tabs/spaces
 - All the changes will be approved (or not) by [Saul-BT](https://github.com/Saul-BT) (Me!)
 
-## Authors
+## Authors :wave:
 
 * **Saul Blanco Tejero**   <a href="https://twitter.com/Saul_bt" target="_blank">
     <img alt="Twitter: DGlez1111" src="https://img.shields.io/twitter/follow/Saul_bt.svg?style=social" />
   </a>
 
-## License
+## License :page_with_curl:
 
 L-System is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
