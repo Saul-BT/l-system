@@ -1,6 +1,6 @@
-import Lsystem from './lsystem.js'
+import Lsystem from './lsystem.js';
 
-const canvas = document.getElementById("fractal");
+const canvas = document.getElementById('fractal');
 
 export function useFractal(name) {
     let pattern = PATTERNS[name];
@@ -21,26 +21,24 @@ export function drawIt() {
     function getFormattedRules(rules) {
         let array = [];
 
-        for(let i = 0; i < rules.length; i+=2) {
-            array.push({input: rules[i].value,
-                        output: rules[i+1].value});
+        for (let i = 0; i < rules.length; i += 2) {
+            array.push({ input: rules[i].value, output: rules[i + 1].value });
         }
         return array;
     }
-    let axiom = document.getElementById("axiom").value;
-    let rules = document.getElementsByClassName("rule");
-    let angle = document.getElementById("angle").value;
-    let len = document.getElementById("lineLength").value;
-    let gen = document.getElementById("gen").value;
+    let axiom = document.getElementById('axiom').value;
+    let rules = document.getElementsByClassName('rule');
+    let angle = document.getElementById('angle').value;
+    let len = document.getElementById('lineLength').value;
+    let gen = document.getElementById('gen').value;
     rules = getFormattedRules(rules);
 
     const lsys = new Lsystem(axiom, rules);
     lsys.useGeneration(gen);
-    
+
     process(canvas, lsys.sentence, len, angle, gen);
     updateInfo(lsys);
 }
-
 
 /*
     G - Line Forward
@@ -53,9 +51,11 @@ export function drawIt() {
 
 function process(canvas, sentence, len, angle, gen) {
     let ctx = canvas.getContext('2d');
+    angle *= Math.PI / 180;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.strokeStyle = '#' + Math.random().toString(16).slice(-6);
-    ctx.lineWidth = 1; ctx.save();
+    ctx.lineWidth = 1;
+    ctx.save();
     ctx.translate(canvas.width / 2, canvas.height);
 
     for (let i = 0; i < sentence.length; i++) {
@@ -78,13 +78,17 @@ function process(canvas, sentence, len, angle, gen) {
                 ctx.translate(0, -len);
                 break;
             case '+':
-                ctx.rotate(angle); break;
+                ctx.rotate(angle);
+                break;
             case '-':
-                ctx.rotate(-angle); break;
+                ctx.rotate(-angle);
+                break;
             case '[':
-                ctx.save(); break;
+                ctx.save();
+                break;
             case ']':
-                ctx.restore(); break;
+                ctx.restore();
+                break;
         }
     }
     ctx.restore();
@@ -98,45 +102,78 @@ function updateInfo(lsys) {
         }
         return text;
     }
-    let axiomInfo = document.getElementById("axiomInfo");
-    let rulesInfo = document.getElementById("rulesInfo");
-    let genInfo = document.getElementById("genInfo");
+    let axiomInfo = document.getElementById('axiomInfo');
+    let rulesInfo = document.getElementById('rulesInfo');
+    let genInfo = document.getElementById('genInfo');
 
     axiomInfo.innerText = `Axiom: ${lsys.axiom}`;
     rulesInfo.innerText = `Rules:\n ${getPlainTextRules(lsys.rules)}`;
     genInfo.innerText = `Gen: ${lsys.gen}`;
 }
 
-function createPattern(axiom, rules, recomendedGen, len, angle) {
-    return {axiom, rules, recomendedGen, len,
-        angle: angle * Math.PI / 180};
-}
-
 const PATTERNS = {
-    tree0: createPattern(
-        'F', [{input: 'F', output: "G[+F]-F"},
-        {input: 'G', output: "GG"}], 7, 3.5, 26),
-    tree1: createPattern(
-        'X', [{input: 'X', output: "F+[[X]-X]-F[-FX]+X"},
-        {input: 'F', output: "FF"}], 6, 2.5, 20),
-    tree2: createPattern(
-        'F', [{input: 'F', output: "FF+[+F-F-F]-[-F+F+F]"}],
-        4, 8, 25),
-    triangle0: createPattern(
-        '+F', [{input: 'F', output: "G--F--G"},
-        {input: 'G', output: "F++G++F"}], 7, 3.7, 30),
-    curve0: createPattern(
-        'G+F----F----F', [{input: 'F', output: "F++F----F++F"},
-        {input: 'G', output: "GG"}], 4, 4, 30),
-    curve1: createPattern(
-        'GGLFL+F+LFL', [{input: 'L', output: "-RF+LFL+FR-"},
-        {input: 'R', output: "+LF-RFR-FL+"},
-        {input: 'G', output: "GG"}], 4, 7, 90)
+    tree0: {
+        axiom: 'F',
+        rules: [
+            { input: 'F', output: 'G[+F]-F' },
+            { input: 'G', output: 'GG' },
+        ],
+        recomendedGen: 7,
+        len: 3.5,
+        angle: 26,
+    },
+    tree1: {
+        axiom: 'X',
+        rules: [
+            { input: 'X', output: 'F+[[X]-X]-F[-FX]+X' },
+            { input: 'F', output: 'FF' },
+        ],
+        recomendedGen: 6,
+        len: 2.5,
+        angle: 20,
+    },
+    tree2: {
+        axiom: 'F',
+        rules: [{ input: 'F', output: 'FF+[+F-F-F]-[-F+F+F]' }],
+        recomendedGen: 4,
+        len: 8,
+        angle: 25,
+    },
+    triangle0: {
+        axiom: '+F',
+        rules: [
+            { input: 'F', output: 'G--F--G' },
+            { input: 'G', output: 'F++G++F' },
+        ],
+        recomendedGen: 7,
+        len: 3.7,
+        angle: 30,
+    },
+    curve0: {
+        axiom: 'G+F----F----F',
+        rules: [
+            { input: 'F', output: 'F++F----F++F' },
+            { input: 'G', output: 'GG' },
+        ],
+        recomendedGen: 4,
+        len: 4,
+        angle: 30,
+    },
+    curve1: {
+        axiom: 'GGLFL+F+LFL',
+        rules: [
+            { input: 'L', output: '-RF+LFL+FR-' },
+            { input: 'R', output: '+LF-RFR-FL+' },
+            { input: 'G', output: 'GG' },
+        ],
+        recomendedGen: 4,
+        len: 7,
+        angle: 90,
+    },
 };
-
 
 const useRandomFractal = () => {
     let keys = Object.keys(PATTERNS);
     useFractal(keys[Math.floor(Math.random() * keys.length)]);
-}
+};
 useRandomFractal();
