@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fractales</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
-<body>
-    <h1>L-System</h1>
 
-    <section class="customPattern">
-        <input type="text" name="axiom" id="axiom" placeholder="Axiom">
-        <input type="number" name="lineLength" id="lineLength" placeholder="len">
-        <input type="number" name="angle" id="angle" placeholder="angle">
-        <input type="number" name="gen" id="gen" placeholder="gen">
+<body class="p-4">
+    <h1 class="font-bold">L-System</h1>
 
-        <p>Rules:</p>
-        <section id="customRules">
-            <input type="text" class="rule input">
-            <input type="text" class="rule output">
-            <button id="addRulesCtr">+</button><br/>
+    <div class="grid my-2 grid-cols-1 md:grid-cols-2 gap-8">
+
+
+        <section class="customPattern">
+            <div class="grid grid-cols-4">
+
+                <input type="text" name="axiom" id="axiom" placeholder="Axiom">
+                <input type="number" name="lineLength" id="lineLength" placeholder="len">
+                <input type="number" name="angle" id="angle" placeholder="angle">
+                <input type="number" name="gen" id="gen" placeholder="gen">
+            </div>
+
+            <p>Rules:</p>
+            <section id="customRules">
+                <input type="text" class="rule input">
+                <input type="text" class="rule output">
+                <button id="addRulesCtr" class="bg-blue-500 text-white hover:bg-green-500 transform  leading-4 p-4 transition duration-100">+</button><br />
+            </section>
+
+            <button id="drawIt" class="bg-blue-500 text-white hover:bg-purple-500 transform  leading-4 p-4 transition duration-100">Draw It!</button>
         </section>
-        
-        <button id="drawIt">Draw It!</button>
-    </section>
 
-    <section class="glossary">
-        <h3>Glossary:</h3>
-        <p>- <span class="command">F</span>/<span class="command">G</span>: Draw line forward</p>
-        <p>- Rotate by angle (<span class="command">-</span>: left; <span class="command">+</span>: right)</p>
-        <p>- Canvas state (<span class="command">[</span>: save; <span class="command">]</span>: restore)</p>
-    </section>
+        <section class="glossary">
+            <h3>Glossary:</h3>
+            <p>- <span class="command">F</span>/<span class="command">G</span>: Draw line forward</p>
+            <p>- Rotate by angle (<span class="command">-</span>: left; <span class="command">+</span>: right)</p>
+            <p>- Canvas state (<span class="command">[</span>: save; <span class="command">]</span>: restore)</p>
+        </section>
+
+    </div>
 
     <canvas width="500" height="500" id="fractal">
-        Tu puto navegador no soporta esta mierda.
+        Tu puto navegador no soporta esta mierda (ya me jodería).
     </canvas>
 
     <section id="currentFractalInfo">
@@ -43,26 +55,47 @@
         <p id="genInfo"></p>
     </section>
 
-    <h3>Examples:</h3>
-    <input type="radio" name="fractalSelector" id="tree0">
-    <label for="tree0">Tree 1</label><br/>
+    <section>
+        <h3>Examples:</h3>
 
-    <input type="radio" name="fractalSelector" id="tree1">
-    <label for="tree1">Tree 2</label><br/>
+        <div class="flex flex-col md:flex-row flex-wrap md:items-center md:space-x-4 space-y-4 md:space-y-0">
 
-    <input type="radio" name="fractalSelector" id="tree2">
-    <label for="tree2">Tree 3</label><br/>
+            <label class="shadow bg-white p-2 rounded bg-gray-100 cursor-pointer" for="tree0">
+                <input type="radio" name="fractalSelector" id="tree0">
+                Tree 1
+            </label>
 
-    <input type="radio" name="fractalSelector" id="triangle0">
-    <label for="triangle0">Sierpiński arrowhead curve</label><br/>
 
-    <input type="radio" name="fractalSelector" id="curve0">
-    <label for="curve0">Koch Snowflake</label><br/>
+            <label class="shadow bg-white p-2 rounded bg-gray-100 cursor-pointer" for="tree1">
+                <input type="radio" name="fractalSelector" id="tree1">
+                Tree 2
+            </label>
 
-    <input type="radio" name="fractalSelector" id="curve1">
-    <label for="curve1">Hilbert curve</label><br/>
-    
+            <label class="shadow bg-white p-2 rounded bg-gray-100 cursor-pointer" for="tree2">
+                <input type="radio" name="fractalSelector" id="tree2">
+                Tree 3
+            </label>
+
+            <label class="shadow bg-white p-2 rounded bg-gray-100 cursor-pointer" for="triangle0">
+                <input type="radio" name="fractalSelector" id="triangle0">
+                Sierpiński arrowhead curve
+            </label>
+
+            <label class="shadow bg-white p-2 rounded bg-gray-100 cursor-pointer" for="curve0">
+                <input type="radio" name="fractalSelector" id="curve0">
+                Koch Snowflake
+            </label>
+
+            <label class="shadow bg-white p-2 rounded bg-gray-100 cursor-pointer" for="curve1">
+                <input type="radio" name="fractalSelector" id="curve1">
+                Hilbert curve
+            </label>
+
+        </div>
+    </section>
+
     <script type="module" src="js/controls.js"></script>
     <script type="module" src="js/lsystem/render.js"></script>
 </body>
+
 </html>
