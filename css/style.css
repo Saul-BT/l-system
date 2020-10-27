@@ -1,11 +1,17 @@
-h1 {text-align: center}
+h1 {
+    text-align: center
+}
 
-.customPattern {float: left}
-.customPattern > p{margin: 10px 0 0 8px}
+.customPattern {
+    float: left
+}
+
+.customPattern>p {
+    margin: 10px 0 0 8px
+}
 
 .glossary {
     color: #555;
-    margin-left: 500px
 }
 
 .glossary .command {
@@ -13,9 +19,7 @@ h1 {text-align: center}
     font-weight: bold
 }
 
-.customPattern input,
-.customPattern button {
-    color: black;
+.customPattern input, .customPattern button {
     margin: 8px 5px;
     padding: 3px 8px;
     border: 1px solid rgba(0, 0, 0, 0.15);
@@ -23,11 +27,13 @@ h1 {text-align: center}
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15)
 }
 
-input#axiom {width: 70px}
+.customPattern>input:not(#axiom) {
+    width: 35px
+}
 
-.customPattern > input:not(#axiom) {width: 35px}
-
-input.rule {width: 100px}
+input.rule {
+    width: 100px
+}
 
 canvas {
     clear: both;
@@ -36,7 +42,6 @@ canvas {
     background-color: #363636;
     border-radius: 8px
 }
-
 
 #currentFractalInfo {
     position: relative;
@@ -53,11 +58,16 @@ canvas {
 }
 
 @media screen and (max-width: 900px) {
-    .customPattern {float: none}
-    .glossary {margin-left: 10px}
+    .customPattern {
+        float: none
+    }
+    .glossary {
+        margin-left: 10px
+    }
 }
 
 @media screen and (max-width: 550px) {
-    #currentFractalInfo,
-    canvas#fractal {width: 100%}
+    #currentFractalInfo, canvas#fractal {
+        width: 100%
+    }
 }
