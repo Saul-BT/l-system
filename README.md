@@ -21,7 +21,7 @@ L-System uses the ecmascript 6 modules so in order to run it on your local machi
     <img alt="Twitter: DGlez1111" src="https://img.shields.io/twitter/follow/Saul_bt.svg?style=social" />
   </a>
 
-## Screenshots
+## Screenshots :camera:
 
 ![](https://i.imgur.com/q5HbRLL.png)
 ![](https://i.imgur.com/8qPL1WE.png)
