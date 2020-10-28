@@ -23,7 +23,6 @@ L-System uses the ecmascript 6 modules so in order to run it on your local machi
 
 ## Screenshots :camera:
 
-![](https://i.imgur.com/q5HbRLL.png)
 ![](https://i.imgur.com/8qPL1WE.png)
 
 ## License :page_with_curl:
